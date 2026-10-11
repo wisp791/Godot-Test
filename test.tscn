@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bddt3qlxt33kj"]
+
+[ext_resource type="Texture2D" uid="uid://c2wuwgsqfu7ge" path="res://icon.svg" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://cd1t5e0myd4hk" path="res://scripts/movement.gd" id="2_6uqi0"]
+[ext_resource type="Script" uid="uid://cbe3ntw6uti7s" path="res://scripts/hp.gd" id="3_6uqi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ry2g"]
+size = Vector2(268, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es8jv"]
+size = Vector2(20, 30)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uqi0"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bfxr"]
+size = Vector2(45, 20)
+
+[node name="Node2D" type="Node2D" unique_id=626909662]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=316520481]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2112339497]
+position = Vector2(126, 22)
+shape = SubResource("RectangleShape2D_8ry2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=352739797]
+position = Vector2(126.00001, 21.500004)
+scale = Vector2(2.0937502, 0.49218756)
+texture = ExtResource("1_37kl0")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=338293096]
+position = Vector2(70, -12)
+script = ExtResource("2_6uqi0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1004449612]
+position = Vector2(-0.9999962, -15)
+shape = SubResource("RectangleShape2D_es8jv")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1664010718]
+position = Vector2(-0.99999905, -14.75)
+scale = Vector2(0.15625007, 0.25390625)
+texture = ExtResource("1_37kl0")
+
+[node name="Control" type="Control" parent="CharacterBody2D" unique_id=1044325013]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CharacterBody2D/Control" unique_id=209369644]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 67.0
+offset_right = 203.0
+offset_bottom = 94.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1, 0.25)
+theme_override_styles/fill = SubResource("StyleBoxFlat_6uqi0")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_6uqi0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1778486932]
+position = Vector2(141, -28)
+zoom = Vector2(3, 3)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=671504255]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1953385015]
+position = Vector2(283.5, 0)
+shape = SubResource("RectangleShape2D_1bfxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/CollisionShape2D" unique_id=1796360527]
+position = Vector2(1.0000057, -1.9073486e-06)
+scale = Vector2(0.3515626, 0.15625)
+texture = ExtResource("1_37kl0")
