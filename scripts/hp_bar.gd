@@ -1,15 +1,15 @@
 extends ProgressBar
 
-var health := 100
-@onready var characterBody2D = get_node("../../")
+@export var hp: Hp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	value = health
-
-
+	hp.health_changed.connect(_on_health_changed)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if characterBody2D.position.y > 75:
-		health -= 10
+	pass
+	
+func _on_health_changed(health, max_health):
 	value = health
+	max_value = max_health

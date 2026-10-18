@@ -1,0 +1,4 @@
+res://test.tscn
+res://scripts/hp.gd
+res://scripts/hp_component.gd
+res://scripts/hp_bar.gd

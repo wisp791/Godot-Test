@@ -1,7 +1,8 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1792352078
+::res://::1792352781
 icon.svg::CompressedTexture2D::6714610427204680640::1792351768::1792352079::1::::<><><>0<>0<>f290ee78259bff7f44d248432f216ba3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-test.tscn::PackedScene::2604384831399266685::1792351768::0::1::::<><><>0<>0<><>::uid://c2wuwgsqfu7ge::::res://icon.svg<>uid://cd1t5e0myd4hk::::res://scripts/movement.gd<>uid://cbe3ntw6uti7s::::res://scripts/hp.gd
-::res://scripts/::1792351768
-hp.gd::GDScript::4853012046524030122::1792351768::0::1::::<>ProgressBar<><>0<>0<><>::
+test.tscn::PackedScene::2604384831399266685::1792352785::0::1::::<><><>0<>0<><>::uid://c2wuwgsqfu7ge::::res://icon.svg<>uid://cd1t5e0myd4hk::::res://scripts/movement.gd<>uid://cbe3ntw6uti7s::::res://scripts/hp+bar.gd<>uid://cs6rc2l0j570g::::res://scripts/hp_component.gd
+::res://scripts/::1792352781
+hp_component.gd::GDScript::6101273459983909816::1792352754::0::1::::<>Node2D<><>0<>0<><>::
 movement.gd::GDScript::5038289165876522948::1792351768::0::1::::<>CharacterBody2D<><>0<>0<><>::
+hp_bar.gd::GDScript::4853012046524030122::1792352780::0::1::::<>ProgressBar<><>0<>0<><>::
