@@ -2,3 +2,5 @@ res://test.tscn
 res://scripts/hp.gd
 res://scripts/hp_component.gd
 res://scripts/hp_bar.gd
+res://scripts/movement.gd
+res://scripts/cliff_growth.gd

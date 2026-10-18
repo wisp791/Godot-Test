@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var cliff: StaticBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -22,8 +23,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if position.y > 75:
-		position.x = 70
-		position.y = -12
+	if position.y >= 125:
+		position.x = -14
+		position.y = -107
+		cliff.grow()
 
 	move_and_slide()

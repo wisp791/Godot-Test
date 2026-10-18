@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c2wuwgsqfu7ge" path="res://icon.svg" id="1_37kl0"]
 [ext_resource type="Script" uid="uid://cd1t5e0myd4hk" path="res://scripts/movement.gd" id="2_6uqi0"]
+[ext_resource type="Script" uid="uid://d0ca1qihtqpfj" path="res://scripts/cliff_growth.gd" id="2_ykrsh"]
 [ext_resource type="Script" uid="uid://cbe3ntw6uti7s" path="res://scripts/hp_bar.gd" id="3_6uqi0"]
 [ext_resource type="Script" uid="uid://cs6rc2l0j570g" path="res://scripts/hp_component.gd" id="4_ppyta"]
 
@@ -17,12 +18,13 @@ size = Vector2(20, 30)
 [node name="Node2D" type="Node2D" unique_id=626909662]
 
 [node name="Control" type="Control" parent="." unique_id=1044325013]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_left = 70.0
-offset_top = -12.0
-offset_right = 110.0
-offset_bottom = 28.0
+offset_left = 75.0
+offset_top = -20.0
+offset_right = 115.0
+offset_bottom = 20.0
 
 [node name="HpBar" type="ProgressBar" parent="Control" unique_id=209369644 node_paths=PackedStringArray("hp")]
 layout_mode = 0
@@ -39,14 +41,18 @@ script = ExtResource("3_6uqi0")
 hp = NodePath("../../Player/HpComponent")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=316520481]
+position = Vector2(112, 80)
+rotation = 3.1415927
+script = ExtResource("2_ykrsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2112339497]
-position = Vector2(57, -11)
+position = Vector2(55.000008, 38.92026)
+scale = Vector2(1, 0.44448468)
 shape = SubResource("RectangleShape2D_8ry2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=352739797]
-position = Vector2(57.999992, -10.250004)
-scale = Vector2(1.6875, 1.3945313)
+position = Vector2(56, 39.670258)
+scale = Vector2(1.6875, 0.6198478)
 texture = ExtResource("1_37kl0")
 
 [node name="StaticBody2D (2)" type="StaticBody2D" parent="." unique_id=2133331513]
@@ -61,9 +67,10 @@ position = Vector2(248.2014, 57.621445)
 scale = Vector2(1.331272, 0.33783507)
 texture = ExtResource("1_37kl0")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=338293096]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=338293096 node_paths=PackedStringArray("cliff")]
 position = Vector2(70, -12)
 script = ExtResource("2_6uqi0")
+cliff = NodePath("../StaticBody2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1004449612]
 position = Vector2(-13.999992, -107)
