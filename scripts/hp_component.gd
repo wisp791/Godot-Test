@@ -13,6 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if characterBody2D.position.y > 75:
-		health -= 10
-		health_changed.emit(health, max_health)
+	pass
+func take_damage(amount) -> void:
+	health -= amount
+	health_changed.emit(health, max_health)
