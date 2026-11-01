@@ -1,4 +1,9 @@
-res://test.tscn
-res://scripts/follow.gd
 res://scripts/movement.gd
+res://test.tscn
+res://scripts/cliff_growth.gd
+res://ground.gd
+res://money.gd
+res://scripts/ground.gd
 res://scripts/hp_component.gd
+res://scripts/money.gd
+res://scripts/player.gd

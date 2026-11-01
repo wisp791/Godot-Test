@@ -1,3 +1,7 @@
+Control
+CollisionShape2D
+Area2D
+StaticBody2D
+Node2D
 TileMapLayer
 AnimatedSprite2D
-Node2D

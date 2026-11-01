@@ -7,7 +7,10 @@ extends CharacterBody2D
 @export_category("Feel & Polish")
 @export var coyote_time: float = 0.15     # Time window to jump after leaving a ledge
 @export var jump_buffer_time: float = 0.1 # Time window to pre-register a jump input before landing
+
 @onready var hp_component = $HpComponent
+@onready var cliff = $"../Cliff"
+@onready var money = $"../Control"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -79,6 +82,8 @@ func update_animations(direction: float) -> void:
 		teleport()
 
 func teleport():
-		position.x = 70
-		position.y = -12
+		position.x = $"../Cliff/TP_point".position.x
+		position.y = $"../Cliff/TP_point".position.y
 		hp_component.take_damage(10)
+		money.reward(10)
+		cliff.grow()
