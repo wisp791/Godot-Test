@@ -1,6 +1,6 @@
 extends Control
 
-var money:float = 0
+@export var money:float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 	pass
 	
 func reward(amount) -> void:
-	money += amount	
-	print(money)
+	money += amount
+	
