@@ -1,22 +1,23 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1794076190
-icon.svg::CompressedTexture2D::6714610427204680640::1794074710::1794074758::1::::<><><>0<>0<>f290ee78259bff7f44d248432f216ba3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-test.tscn::PackedScene::2604384831399266685::1794076190::0::1::::<><><>0<>0<><>::uid://d0ca1qihtqpfj::::res://scripts/cliff_growth.gd<>uid://cwsx2tuhyi263::::res://sprites/terrain/stones&cliffs.png<>uid://cbe3ntw6uti7s::::res://scripts/hp_bar.gd<>uid://cd1t5e0myd4hk::::res://scripts/player.gd<>uid://cs6rc2l0j570g::::res://scripts/hp_component.gd<>uid://b3ne10nfai720::::res://sprites/player/16x32 Idle-Sheet.png<>uid://83fsanagj2p3::::res://sprites/player/16x32 Jump-Sheet.png<>uid://1ixvghxwb8i1::::res://sprites/player/16x32 Run-Sheet.png<>uid://caxtnpspskbam::::res://sprites/player/16x32 Walk-Sheet.png<>uid://bnfd88tkwfg04::::res://scripts/ground.gd<>uid://bt876xktrhyfy::::res://scripts/money.gd
-::res://scripts/::1794074710
-cliff_growth.gd::GDScript::8918159181255881983::1794074710::0::1::::<>StaticBody2D<><>0<>0<><>::
-follow.gd::GDScript::6731733721588007143::1794074710::0::1::::<>Camera2D<><>0<>0<><>::
-ground.gd::GDScript::3309440385040778511::1794074710::0::1::::<>Area2D<><>0<>0<><>::
-hp_bar.gd::GDScript::4853012046524030122::1794074710::0::1::::<>ProgressBar<><>0<>0<><>::
-hp_component.gd::GDScript::6101273459983909816::1794074710::0::1::::Hp<>Node2D<><>0<>0<><>::
-money.gd::GDScript::3790132706450658890::1794074710::0::1::::<>Control<><>0<>0<><>::
-player.gd::GDScript::5038289165876522948::1794074710::0::1::::<>CharacterBody2D<><>0<>0<><>::
-moneycounter.gd::GDScript::7906293384374922692::1794076485::0::1::::<>RichTextLabel<><>0<>0<><>::
-::res://sprites/::1794074710
-::res://sprites/player/::1794074758
-16x32 Idle-Sheet.png::CompressedTexture2D::4378835848367118543::1794074710::1794074758::1::::<><><>0<>0<>d3099597d95e97e7795eb3da4aa2935f<>res://.godot/imported/16x32 Idle-Sheet.png-50a0fe6e9b70e100e12188b2bd98bc8f.ctex::
-16x32 Jump-Sheet.png::CompressedTexture2D::2374370166513723758::1794074710::1794074758::1::::<><><>0<>0<>4617f94c28e71ae491a0baa0b55cdaec<>res://.godot/imported/16x32 Jump-Sheet.png-7e5bb6c21b5945619ba096fcb07ce517.ctex::
-16x32 Run-Sheet.png::CompressedTexture2D::1842859276155175350::1794074710::1794074758::1::::<><><>0<>0<>8916f907a12f2e50c975c1dcd915808c<>res://.godot/imported/16x32 Run-Sheet.png-c87c09c855fb045f41e55481c36255fd.ctex::
-16x32 Walk-Sheet.png::CompressedTexture2D::4821499710275614688::1794074710::1794074758::1::::<><><>0<>0<>863b806ed768bcdd7020f0e581abaff2<>res://.godot/imported/16x32 Walk-Sheet.png-6e3c276cb60565b79a540d06ddd4eeee.ctex::
-::res://sprites/terrain/::1794075322
-stones&cliffs.png::CompressedTexture2D::6355600463455259206::1794075295::1794075322::1::::<><><>0<>0<>5552009e2fe19b69b4b06e4bb997e321<>res://.godot/imported/stones&cliffs.png-ae4a4b2ceb4272fab121ba39502208fb.ctex::
-world_tileset.png::CompressedTexture2D::6993276103790731976::1794074710::1794074758::1::::<><><>0<>0<>01b0ca771943f0f771fd5463897d6d63<>res://.godot/imported/world_tileset.png-ae80716aa55d5157a436342d3e872e24.ctex::
+::res://::1794169805
+icon.svg::CompressedTexture2D::6714610427204680640::1792351768::1792352079::1::::<><><>0<>0<>f290ee78259bff7f44d248432f216ba3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+test.tscn::PackedScene::2604384831399266685::1794169805::0::1::::<><><>0<>0<><>::uid://d0ca1qihtqpfj::::res://scripts/cliff_growth.gd<>uid://cwsx2tuhyi263::::res://sprites/terrain/stones&cliffs.png<>uid://cbe3ntw6uti7s::::res://scripts/hp_bar.gd<>uid://cd1t5e0myd4hk::::res://scripts/player.gd<>uid://cs6rc2l0j570g::::res://scripts/hp_component.gd<>uid://b3ne10nfai720::::res://sprites/player/16x32 Idle-Sheet.png<>uid://83fsanagj2p3::::res://sprites/player/16x32 Jump-Sheet.png<>uid://1ixvghxwb8i1::::res://sprites/player/16x32 Run-Sheet.png<>uid://caxtnpspskbam::::res://sprites/player/16x32 Walk-Sheet.png<>uid://bnfd88tkwfg04::::res://scripts/ground.gd<>uid://bt876xktrhyfy::::res://scripts/money.gd<>uid://dkv4q5o2ys3c7::::res://scripts/moneycounter.gd
+::res://scripts/::1794169048
+cliff_growth.gd::GDScript::8918159181255881983::1793565770::0::1::::<>StaticBody2D<><>0<>0<><>::
+follow.gd::GDScript::6731733721588007143::1792955711::0::1::::<>Camera2D<><>0<>0<><>::
+ground.gd::GDScript::3309440385040778511::1794168881::0::1::::<>Area2D<><>0<>0<><>::
+hp_bar.gd::GDScript::4853012046524030122::1792353781::0::1::::<>ProgressBar<><>0<>0<><>::
+hp_component.gd::GDScript::6101273459983909816::1794169033::0::1::::Hp<>Node2D<><>0<>0<><>::
+money.gd::GDScript::3790132706450658890::1794168706::0::1::::<>Control<><>0<>0<><>::
+moneycounter.gd::GDScript::7906293384374922692::1794168416::0::1::::<>RichTextLabel<><>0<>0<><>::
+player.gd::GDScript::5038289165876522948::1794169048::0::1::::<>CharacterBody2D<><>0<>0<><>::
+interact.gd::GDScript::2297761078597362405::1794169875::0::1::::<>StaticBody2D<><>0<>0<><>::
+::res://sprites/::1792957332
+::res://sprites/player/::1792957326
+16x32 Idle-Sheet.png::CompressedTexture2D::4378835848367118543::1792956616::1792957326::1::::<><><>0<>0<>d3099597d95e97e7795eb3da4aa2935f<>res://.godot/imported/16x32 Idle-Sheet.png-50a0fe6e9b70e100e12188b2bd98bc8f.ctex::
+16x32 Jump-Sheet.png::CompressedTexture2D::2374370166513723758::1792956616::1792957326::1::::<><><>0<>0<>4617f94c28e71ae491a0baa0b55cdaec<>res://.godot/imported/16x32 Jump-Sheet.png-7e5bb6c21b5945619ba096fcb07ce517.ctex::
+16x32 Run-Sheet.png::CompressedTexture2D::1842859276155175350::1792956616::1792957326::1::::<><><>0<>0<>8916f907a12f2e50c975c1dcd915808c<>res://.godot/imported/16x32 Run-Sheet.png-c87c09c855fb045f41e55481c36255fd.ctex::
+16x32 Walk-Sheet.png::CompressedTexture2D::4821499710275614688::1792956616::1792957326::1::::<><><>0<>0<>863b806ed768bcdd7020f0e581abaff2<>res://.godot/imported/16x32 Walk-Sheet.png-6e3c276cb60565b79a540d06ddd4eeee.ctex::
+::res://sprites/terrain/::1794168457
+stones&cliffs.png::CompressedTexture2D::6355600463455259206::1794168416::1794168457::1::::<><><>0<>0<>5552009e2fe19b69b4b06e4bb997e321<>res://.godot/imported/stones&cliffs.png-ae4a4b2ceb4272fab121ba39502208fb.ctex::
+world_tileset.png::CompressedTexture2D::6993276103790731976::1792957360::1792957361::1::::<><><>0<>0<>01b0ca771943f0f771fd5463897d6d63<>res://.godot/imported/world_tileset.png-ae80716aa55d5157a436342d3e872e24.ctex::

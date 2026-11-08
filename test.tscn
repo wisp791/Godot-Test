@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cwsx2tuhyi263" path="res://sprites/terrain/stones&cliffs.png" id="3_5tkv4"]
 [ext_resource type="Script" uid="uid://cbe3ntw6uti7s" path="res://scripts/hp_bar.gd" id="3_6uqi0"]
 [ext_resource type="Script" uid="uid://cd1t5e0myd4hk" path="res://scripts/player.gd" id="3_77dp3"]
+[ext_resource type="Script" uid="uid://13ose2ah1kve" path="res://merchant_animation.gd" id="3_b0q6j"]
 [ext_resource type="Script" uid="uid://cs6rc2l0j570g" path="res://scripts/hp_component.gd" id="4_ppyta"]
 [ext_resource type="Texture2D" uid="uid://b3ne10nfai720" path="res://sprites/player/16x32 Idle-Sheet.png" id="5_g14j6"]
 [ext_resource type="Texture2D" uid="uid://83fsanagj2p3" path="res://sprites/player/16x32 Jump-Sheet.png" id="6_xersf"]
@@ -12,14 +13,18 @@
 [ext_resource type="Script" uid="uid://bnfd88tkwfg04" path="res://scripts/ground.gd" id="10_00tp4"]
 [ext_resource type="Script" uid="uid://bt876xktrhyfy" path="res://scripts/money.gd" id="10_77dp3"]
 [ext_resource type="Script" uid="uid://dkv4q5o2ys3c7" path="res://scripts/moneycounter.gd" id="12_5tkv4"]
+[ext_resource type="Script" uid="uid://70b13m8c1pa0" path="res://scripts/interact.gd" id="13_0m0f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ry2g"]
 size = Vector2(214.7324, 131.3619)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5tkv4"]
+load_path = "res://.godot/imported/stones&cliffs.png-ae4a4b2ceb4272fab121ba39502208fb.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bfxr"]
 size = Vector2(11, 199)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_es8jv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08ahh"]
 size = Vector2(7, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g14j6"]
@@ -37,6 +42,32 @@ region = Rect2(64, 34, 32, 31)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xersf"]
 atlas = ExtResource("5_g14j6")
 region = Rect2(96, 34, 32, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0m0f1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g14j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbegm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehkex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xersf")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qml7q"]
+size = Vector2(58, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es8jv"]
+size = Vector2(7, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00tp4"]
 atlas = ExtResource("6_xersf")
@@ -167,13 +198,13 @@ position = Vector2(55.000008, 49.162342)
 scale = Vector2(1, 0.444)
 shape = SubResource("RectangleShape2D_8ry2g")
 
-[node name="TP_point" type="Node2D" parent="Cliff" unique_id=1800634787]
+[node name="Teleport Point" type="Node2D" parent="Cliff" unique_id=1800634787]
 position = Vector2(71, -76)
 
 [node name="Sprite2D" type="Sprite2D" parent="Cliff" unique_id=727056569]
 position = Vector2(59.45249, 36.999985)
 scale = Vector2(0.4142701, 0.4225)
-texture = ExtResource("3_5tkv4")
+texture = SubResource("CompressedTexture2D_5tkv4")
 region_enabled = true
 region_rect = Rect2(1899.6511, 1297.093, 596.3489, 213.0398)
 
@@ -191,19 +222,56 @@ position = Vector2(1, 0)
 position = Vector2(339, -21)
 shape = SubResource("RectangleShape2D_1bfxr")
 
-[node name="StaticBody2D (2)" type="StaticBody2D" parent="." unique_id=2133331513]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=2133331513]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D (2)" unique_id=1937548658]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1937548658]
 position = Vector2(247.7014, 57.5)
 scale = Vector2(0.7889018, 0.24225707)
 shape = SubResource("RectangleShape2D_8ry2g")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D (2)" unique_id=1948181993]
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1948181993]
 position = Vector2(351, 53)
 scale = Vector2(0.22968753, 0.22968753)
 texture = ExtResource("3_5tkv4")
 region_enabled = true
 region_rect = Rect2(1720.0265, 669.75024, 1637.5966, 229.74878)
+
+[node name="Merchant" type="StaticBody2D" parent="." unique_id=220468908]
+position = Vector2(-1, 11)
+collision_priority = -1.0
+script = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Merchant" unique_id=341510469]
+shape = SubResource("RectangleShape2D_08ahh")
+
+[node name="MerchantAnimatedSprite2D" type="AnimatedSprite2D" parent="Merchant" unique_id=428585891]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_0m0f1")
+animation = &"idle"
+
+[node name="Interactable" type="Area2D" parent="Merchant" unique_id=1737038049]
+script = ExtResource("13_0m0f1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Merchant/Interactable" unique_id=2035657693]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_qml7q")
+
+[node name="Interact Prompt" type="Control" parent="Merchant/Interactable" unique_id=1139018641]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Prompt" type="Label" parent="Merchant/Interactable/Interact Prompt" unique_id=1780093608]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -14.0
+offset_right = 104.0
+offset_bottom = 9.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3137255)
+theme_override_font_sizes/font_size = 7
+text = "F to interact"
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=338293096]
 position = Vector2(70, -11)
@@ -227,7 +295,22 @@ position = Vector2(71, -16)
 offset = Vector2(-85, -95)
 zoom = Vector2(3, 3)
 
-[node name="Control2" type="Control" parent="Player/Camera2D" unique_id=1233322966]
+[node name="Shop" type="Control" parent="Player/Camera2D" unique_id=2043979560]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -141.0
+offset_top = 42.0
+offset_right = -101.0
+offset_bottom = 82.0
+
+[node name="Panel" type="Panel" parent="Player/Camera2D/Shop" unique_id=1939099281]
+layout_mode = 0
+offset_left = -136.0
+offset_top = -245.0
+offset_right = 248.0
+offset_bottom = -29.0
+
+[node name="Money Counter" type="Control" parent="Player/Camera2D" unique_id=1233322966]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 13.0
@@ -236,7 +319,7 @@ offset_right = 61.0
 offset_bottom = -76.0
 script = ExtResource("10_77dp3")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D/Control2" unique_id=2125870425 node_paths=PackedStringArray("control")]
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D/Money Counter" unique_id=2125870425 node_paths=PackedStringArray("control")]
 layout_mode = 0
 offset_left = -130.0
 offset_top = -70.0
@@ -246,7 +329,7 @@ horizontal_alignment = 2
 script = ExtResource("12_5tkv4")
 control = NodePath("..")
 
-[node name="Control" type="Control" parent="Player/Camera2D" unique_id=1044325013]
+[node name="Hp" type="Control" parent="Player/Camera2D" unique_id=1044325013]
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -256,7 +339,7 @@ offset_right = -192.0
 offset_bottom = -232.0
 scale = Vector2(0.52111125, 1.0327724)
 
-[node name="HpBar" type="ProgressBar" parent="Player/Camera2D/Control" unique_id=209369644 node_paths=PackedStringArray("hp")]
+[node name="HpBar" type="ProgressBar" parent="Player/Camera2D/Hp" unique_id=209369644 node_paths=PackedStringArray("hp")]
 layout_mode = 0
 offset_left = -66.0
 offset_top = 67.0
@@ -270,10 +353,10 @@ show_percentage = false
 script = ExtResource("3_6uqi0")
 hp = NodePath("../../../HpComponent")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1997549763]
+[node name="FloorArea" type="Area2D" parent="." unique_id=1997549763]
 position = Vector2(248, 35)
 script = ExtResource("10_00tp4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1474010422]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea" unique_id=1474010422]
 position = Vector2(0, 25)
 shape = SubResource("RectangleShape2D_77x25")

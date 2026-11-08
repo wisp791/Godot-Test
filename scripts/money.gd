@@ -1,6 +1,6 @@
 extends Control
 
-@export var money:float = 0
+@export var money:int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

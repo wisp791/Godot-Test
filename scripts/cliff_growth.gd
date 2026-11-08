@@ -1,6 +1,7 @@
 extends StaticBody2D
 
-@onready var tp_point = $TP_point
+@onready var tp_point = $"Teleport Point"
+@onready var merchant = $"../Merchant"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,5 +16,5 @@ func grow():
 	scale.y += 0.25
 	position.y -= 19.5
 	tp_point.position.y -= 19.5
-	
+	merchant.position.y -= 14.5
 	

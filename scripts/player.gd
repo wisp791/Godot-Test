@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 @onready var hp_component = $HpComponent
 @onready var cliff = $"../Cliff"
-@onready var money = $"../Control"
+@onready var money = $"Camera2D/Money Counter"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = coyote_time
 
 	# 2. Handle Jump Buffer Input
-	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("ui_accept"):
 		jump_buffer_timer = jump_buffer_time
 	else:
 		jump_buffer_timer -= delta
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = 0.0
 
 	# Variable Jump Height: Cut jump short if the player releases jump early
-	if (Input.is_action_just_released("ui_accept") or Input.is_action_just_released("jump")) and velocity.y < 0.0:
+	if (Input.is_action_just_released("ui_accept")) and velocity.y < 0.0:
 		velocity.y *= 0.5
 
 	# 4. Handle Horizontal Movement
@@ -78,12 +78,10 @@ func update_animations(direction: float) -> void:
 			animated_sprite.play("run")
 		else:
 			animated_sprite.play("idle")
-	if position.y >= 135:
-		teleport()
 
 func teleport():
-		position.x = $"../Cliff/TP_point".position.x
-		position.y = $"../Cliff/TP_point".position.y
+		position.x = $"../Cliff/Teleport Point".position.x
+		position.y = $"../Cliff/Teleport Point".position.y
 		hp_component.take_damage(10)
 		money.reward(10)
 		cliff.grow()
