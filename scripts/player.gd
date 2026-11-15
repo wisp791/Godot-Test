@@ -12,6 +12,14 @@ extends CharacterBody2D
 @onready var cliff = $"../Cliff"
 @onready var money = $"Camera2D/Money Counter"
 
+@export_category("Fall Damage")
+@export var fall_dmg_base: int = 10
+@export var fall_dmg_scale: float = 0.1
+@export var invincible_time: float = 0.0
+var is_invincible: bool = false
+var last_fall_velocity: float = 0.0
+var is_falling: bool = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -52,7 +60,29 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-
+	
+	#fall dmg	
+	if is_falling:
+		if is_on_floor():
+			print("yo i hit the ground")
+			print(last_fall_velocity)
+			if last_fall_velocity > 100:
+				print("yo im taking dmg")
+				 # falling fast
+				var dmg = int(last_fall_velocity * fall_dmg_scale)
+				if dmg > fall_dmg_base: #threshold
+					dmg = dmg *.1
+					print("yo im taking serious dmg", dmg)
+					apply_fall_damage(dmg)
+			is_falling = false
+	
+	#fall check
+	if is_on_floor():
+		is_falling = false
+	else:
+		is_falling = true
+	last_fall_velocity = velocity.y
+	
 	# 5. Update Animations & Sprite Flip
 	update_animations(direction)
 
@@ -82,6 +112,11 @@ func update_animations(direction: float) -> void:
 func teleport():
 		position.x = $"../Cliff/Teleport Point".position.x
 		position.y = $"../Cliff/Teleport Point".position.y
-		hp_component.take_damage(10)
 		money.reward(10)
 		cliff.grow()
+		
+func apply_fall_damage(amount: int):
+	if not is_invincible:
+		hp_component.take_damage(amount)
+		#is_invincible = true
+		#set_invincible_time(invincible_time)

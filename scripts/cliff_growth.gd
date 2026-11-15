@@ -13,8 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 func grow():
-	scale.y += 0.25
-	position.y -= 19.5
+	position.y -= 28.5
 	tp_point.position.y -= 19.5
-	merchant.position.y -= 14.5
+	merchant.position.y -= 28.5
 	

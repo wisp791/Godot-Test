@@ -18,9 +18,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ry2g"]
 size = Vector2(214.7324, 131.3619)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5tkv4"]
-load_path = "res://.godot/imported/stones&cliffs.png-ae4a4b2ceb4272fab121ba39502208fb.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bfxr"]
 size = Vector2(11, 199)
 
@@ -185,7 +182,7 @@ animations = [{
 bg_color = Color(0.8392157, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77x25"]
-size = Vector2(170, 38)
+size = Vector2(171, 38)
 
 [node name="Node2D" type="Node2D" unique_id=626909662]
 
@@ -202,11 +199,11 @@ shape = SubResource("RectangleShape2D_8ry2g")
 position = Vector2(71, -76)
 
 [node name="Sprite2D" type="Sprite2D" parent="Cliff" unique_id=727056569]
-position = Vector2(59.45249, 36.999985)
-scale = Vector2(0.4142701, 0.4225)
-texture = SubResource("CompressedTexture2D_5tkv4")
+position = Vector2(58, 44)
+scale = Vector2(0.57609177, 0.521856)
+texture = ExtResource("3_5tkv4")
 region_enabled = true
-region_rect = Rect2(1899.6511, 1297.093, 596.3489, 213.0398)
+region_rect = Rect2(879.84656, 30.290863, 393.3302, 132.33539)
 
 [node name="Left Boundary" type="StaticBody2D" parent="Cliff" unique_id=1728800023]
 position = Vector2(1, 0)
@@ -223,6 +220,7 @@ position = Vector2(339, -21)
 shape = SubResource("RectangleShape2D_1bfxr")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=2133331513]
+position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1937548658]
 position = Vector2(247.7014, 57.5)
@@ -272,6 +270,7 @@ offset_bottom = 9.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3137255)
 theme_override_font_sizes/font_size = 7
 text = "F to interact"
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=338293096]
 position = Vector2(70, -11)
@@ -302,6 +301,7 @@ offset_left = -141.0
 offset_top = 42.0
 offset_right = -101.0
 offset_bottom = 82.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Player/Camera2D/Shop" unique_id=1939099281]
 layout_mode = 0
@@ -358,5 +358,5 @@ position = Vector2(248, 35)
 script = ExtResource("10_00tp4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea" unique_id=1474010422]
-position = Vector2(0, 25)
+position = Vector2(-0.5, 25)
 shape = SubResource("RectangleShape2D_77x25")
