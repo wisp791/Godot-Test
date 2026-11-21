@@ -1,4 +1,2 @@
 res://test.tscn
-res://scripts/cliff_growth.gd
-res://scripts/ground.gd
 res://scripts/player.gd

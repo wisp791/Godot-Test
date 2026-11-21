@@ -15,7 +15,7 @@ extends CharacterBody2D
 @export_category("Fall Damage")
 @export var fall_dmg_base: int = 10
 @export var fall_dmg_scale: float = 0.1
-@export var invincible_time: float = 0.0
+@export var invincible_time: float = 1.0
 var is_invincible: bool = false
 var last_fall_velocity: float = 0.0
 var is_falling: bool = false
@@ -64,15 +64,12 @@ func _physics_process(delta: float) -> void:
 	#fall dmg	
 	if is_falling:
 		if is_on_floor():
-			print("yo i hit the ground")
 			print(last_fall_velocity)
 			if last_fall_velocity > 100:
-				print("yo im taking dmg")
 				 # falling fast
 				var dmg = int(last_fall_velocity * fall_dmg_scale)
 				if dmg > fall_dmg_base: #threshold
-					dmg = dmg *.1
-					print("yo im taking serious dmg", dmg)
+					dmg = dmg**0.8
 					apply_fall_damage(dmg)
 			is_falling = false
 	
@@ -115,8 +112,16 @@ func teleport():
 		money.reward(10)
 		cliff.grow()
 		
+func set_invincible_time(duration: float):
+	wait(duration)
+	is_invincible = false
+	
 func apply_fall_damage(amount: int):
 	if not is_invincible:
 		hp_component.take_damage(amount)
-		#is_invincible = true
-		#set_invincible_time(invincible_time)
+		is_invincible = true
+		set_invincible_time(invincible_time)
+		
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
+	
