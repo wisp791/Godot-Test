@@ -115,13 +115,16 @@ func teleport():
 func set_invincible_time(duration: float):
 	wait(duration)
 	is_invincible = false
+	print("not invincible")
 	
 func apply_fall_damage(amount: int):
 	if not is_invincible:
 		hp_component.take_damage(amount)
 		is_invincible = true
+		print("invincible")
 		set_invincible_time(invincible_time)
-		
+	else:
+		print("invincible, cannot take dmg")
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 	
