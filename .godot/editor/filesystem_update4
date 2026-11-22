@@ -1,2 +1,3 @@
-res://test.tscn
 res://scripts/player.gd
+res://test.tscn
+res://scripts/hp_component.gd

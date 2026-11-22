@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func take_damage(amount) -> void:
-	health -= amount
+	health = min(health - amount, max_health)
 	health_changed.emit(health, max_health)
 	
 func is_alive() -> bool:

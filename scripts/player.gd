@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	if is_falling:
 		if is_on_floor():
 			print(last_fall_velocity)
-			if last_fall_velocity > 100:
+			if last_fall_velocity > 500:
 				 # falling fast
 				var dmg = int(last_fall_velocity * fall_dmg_scale)
 				if dmg > fall_dmg_base: #threshold
@@ -113,18 +113,13 @@ func teleport():
 		cliff.grow()
 		
 func set_invincible_time(duration: float):
-	wait(duration)
+	await get_tree().create_timer(duration).timeout
 	is_invincible = false
-	print("not invincible")
-	
+
 func apply_fall_damage(amount: int):
 	if not is_invincible:
 		hp_component.take_damage(amount)
 		is_invincible = true
-		print("invincible")
 		set_invincible_time(invincible_time)
-	else:
-		print("invincible, cannot take dmg")
-func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
+		
 	
